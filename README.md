@@ -182,3 +182,21 @@ bash scripts/multinode/start-multinode.sh
 bash scripts/multinode/status-multinode.sh
 ```
 
+
+## 第4章综合实践作业（二）：硬件资源与负载均衡
+
+[完整学生操作指导书（7个任务）](labs/05-云计算硬件资源与负载均衡综合实践.md)
+
+无需安装Nginx，使用 Python 标准库模拟三个 Web 后端与轮询负载均衡：
+
+```bash
+bash scripts/loadbalance/start-lb.sh
+bash scripts/loadbalance/test-lb.sh normal
+bash scripts/loadbalance/stop-server.sh B
+bash scripts/loadbalance/test-lb.sh failover
+bash scripts/loadbalance/start-server.sh B
+bash scripts/loadbalance/test-lb.sh recovered
+bash scripts/loadbalance/stop-lb.sh
+```
+
+负载均衡器监听8080，三个后端分别监听8101、8102、8103。所有服务都位于同一个Codespace，不能替代真实多物理机故障实验。
