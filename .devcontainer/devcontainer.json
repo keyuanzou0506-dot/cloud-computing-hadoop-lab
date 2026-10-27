@@ -7,7 +7,7 @@
   "remoteUser": "hadoop",
   "containerUser": "hadoop",
   "postCreateCommand": "bash scripts/setup-hadoop.sh && bash .devcontainer/run-lab.sh",
-  "postStartCommand": "nohup bash -c 'while true; do python3 -m http.server 8000 --directory \"$PWD/.devcontainer/lab-output\"; sleep 1; done' >/tmp/lab-http.log 2>&1 &",
+  "postStartCommand": "nohup python3 -m http.server 8000 --bind 0.0.0.0 --directory /workspaces/cloud-computing-hadoop-lab/.devcontainer/lab-output >/tmp/lab-http.log 2>&1 </dev/null &",
   "forwardPorts": [
     9870,
     8000
